@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+     
+    <title>Word Counter</title>
+</head>
+<style>
+    #realtimetextviewer {
+        padding: 15px 10px;
+        margin: 20px 0;
+    }
+
+    .wordCount textarea {
+        width: 100%;
+        margin: 0 auto;
+        color: rgb(255, 255, 255);
+        font-family: sans-serif;
+        line-height: 1.7;
+        padding: 20px;
+        background-color: rgba(7, 126, 200, 0.259);
+        outline: none;
+        border: 1px solid white;
+    }
+    .wordCount {
+        width: 100%;
+        margin: 20px auto;
+        justify-content: center;
+        padding: 30px 50px;
+    }
+    .textarearbtns {
+        display: flex; 
+        justify-content: center; 
+        gap: 35px;
+        padding: 20px;
+        align-items: center;
+    }
+    #mm {
+        border: 1px solid rgb(255, 255, 255);
+        height: 50px;
+        display: flex;
+        padding: 0 20px;
+        gap: 6px;
+        align-items: center;
+    }
+    #words, #characters {
+            min-width: 120px;
+            height: 60%;
+            border-bottom: 1px solid white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 20px;
+    }
+
+
+
+
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: sans-serif;
+        color: white;
+    }
+    body{
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.855), transparent), url("Black Minimalist Interiors Design YouTube Thumbnail.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+    footer {
+        background-color: rgb(66, 66, 66);
+        padding: 20px 0;
+        line-height: 2;
+        color: white;
+        padding-top: 90px;
+        background-color: #083a4e;
+    }
+    
+    footer a:hover {
+        text-decoration: #00ff08;
+    }
+    footer section {
+        max-width: 1600px;
+        margin: 0 auto;
+    }
+    footer ul {
+        gap: 5px; 
+        display: flex; 
+        flex-direction: column; 
+        font-family: sans-serif;
+        text-align: left;
+        margin: 10px 0;
+        padding-left: 20px;
+        text-align: center;
+        padding-left: 40px;
+    }
+    footer a {
+        width: 100%;
+        text-align: left;
+        transform: none;
+        text-decoration: none;
+        color: #7bccff;
+    }
+    footer a li {
+        color: #7bccff;
+    }
+    footer a:hover, li:hover {
+        color: #00ff08;
+    }
+    
+    .NavigationP {
+        display: flex;
+        flex-direction: row;
+        max-width: 1300px;
+        margin: 0 auto;
+        margin-bottom: 50px;
+        justify-content: space-around;
+    }
+    .NavigationP iframe{
+        width: 600px;
+        min-height: 400px;
+    }
+    footer .NavigationP div {
+        margin: 0 10px;
+        text-align: left;
+    }
+    .socials {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .btn {
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        justify-content: center;
+        text-align: center;
+        height: 40px;
+        align-items: center;
+        background-color:transparent;
+        height: 45px;
+        padding: 0 20px;
+        color: #7bccff;
+        font-family: sans-serif;
+        font-size: 15px;
+        outline: none;
+        border: 1px solid rgb(0, 255, 38);
+        cursor: pointer;
+        position: relative;
+        width: 230px;
+        gap: 20px;
+        transform: none;
+        margin: 5px 0;
+        transition: .4s ease;
+    }
+    .socials button:hover i{
+        opacity: 1;
+        transition: .4s ease;
+        position: relative;
+        
+    }
+    .socials button:hover {
+        background-color: rgba(0, 255, 38, 0);
+        color: rgb(0, 255, 38);
+        transform: none !important;
+        transition: .4s ease;
+        border: 1px solid white;
+        text-decoration: none;
+        justify-content: space-around;
+    }
+    .socials a:hover {
+        text-decoration: none !important;
+        transition: .4s ease;
+        transform: none;
+    }
+    
+    .Based i{
+        padding-right: 10px;
+    }
+    .Based ul {
+        list-style: none;
+        padding-left: 0px;
+    }
+#interpretation {
+    text-align: center;
+    padding: 10px;
+}
+.lowerBMI h3 {
+    margin-top: 20px;
+    margin-bottom: 12px;
+}
+
+
+
+nav {
+    position: relative;
+    top: 0%;
+    left: 0;
+    height: 60px;
+    margin-bottom: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 30px;
+    background-color: #023448a0;
+    a{
+        color: #7bccff;
+        text-decoration: none;
+    }
+    a:hover {
+        color: #00ff08;
+    }
+}
+nav span:first-child {
+    color: #00ff08;
+    font-size: 2rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 4px;
+    pointer-events: none !important;
+}
+.bannerbtn {
+padding: 12px 40px;
+border: none;
+outline: none;
+background-color: #0bb011;
+color: rgb(255, 255, 255);
+border-radius: 5px;
+margin-left: 15px;
+cursor: pointer;
+}
+.bannerbtn:hover {
+background-color: #009005;
+}
+.popup {
+    width: 550px;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    border-radius: 20px;
+    padding: 30PX 50PX;
+    text-align: center;
+    justify-content: center;
+    position: fixed;
+    bottom:  10px;
+    i{
+        position: absolute;
+        right: 25px; top: 50%;
+        transform: translateY(-50%);
+        font-size: 1.3rem;
+        cursor: pointer;
+    }
+    i:hover{
+        color: gainsboro;
+    }
+}
+
+</style>
+    <div class="popup">
+        Hi there Champ! Check out my portfolio here <br> Here <a href=""> My Portfolio</a>
+        <i class="fa fa-xmark"></i>
+    </div>
+    <script>
+        var popup = document.querySelector(".popup");
+        var popupClose = document.querySelector(".popup i");
+
+        popup.style.right = "-730px";
+        popup.style.transition = ".5s"
+
+        popupClose.addEventListener("click", (e)=>{
+            popup.style.right = "-730px";
+        })
+        setTimeout((e)=>{
+            popup.style.right = "10px";
+        }, 120000)
+    </script>
+<nav>
+    <span>AU</span>
+    <span>
+        <a href="">
+            My Portfolio
+        </a>
+        <button class="bannerbtn">More Projects</button>
+    </span>
+</nav>
+<body>    
+    <div class="wordCount">
+    <!------
+        <div id="realtimetextviewer">
+            Here
+        </div>
+        <input type="text" id="realtime" name="" value="" style="width: 500px; padding: 10px; outline: none; border: 1px solid red; border-radius: 5px; color: rgb(0, 0, 0);" placeholder="Type text to view">
+
+<br><br><br><br>
+------->
+        <textarea name="text" id="text" cols="30" rows="20"  placeholder="Start typing or paste something..."></textarea>
+        <div class="textarearbtns">
+            <div id="mm">Characters:
+                <div id="characters">0</div>
+            </div>
+            <div id="mm"> Word Count:
+                <div id="words">0</div>
+            </div>
+        </div>
+        <button type="submit" id="count" class="btn">Count</button>
+    </div>
+<script>
+    /*
+   var realtime = document.getElementById("realtime");
+   realtime.addEventListener("input", (e) => {
+   var realtimetextviewer = document.getElementById("realtimetextviewer");
+
+        realtimetextviewer.textContent = realtime.value;
+
+    });
+*/
+
+var count = document.getElementById("count");
+count.addEventListener("click", (e) => {
+    var characters = document.getElementById("characters");
+    var words = document.getElementById("words");
+    var text = document.getElementById("text").value.trim();
+
+    characters.textContent = text.replace(/\s/g, "").length;
+
+    var wordCount = text.split(/\s+/).filter(function (word) {
+        return word.length > 0;
+    }).length;
+
+    words.textContent = wordCount;
+});
+
+    
+    
+    
+
+    var imgcontainer = document.getElementsByClassName("imgcontainer")[0];
+
+    document.getElementById("calcBtn").addEventListener("click", (e) => {
+        e.preventDefault();
+    
+        var weight = parseFloat(document.getElementById("weight").value);
+        var age = parseFloat(document.getElementById("age").value);
+        var height = parseFloat(document.getElementById("height").value);
+    
+        if (!isNaN(weight) && !isNaN(height) && weight !== 0 && height !== 0) {
+            var bmi = weight / ((height / 100) * (height / 100));
+            var bmicontent = document.getElementById("bmivalue");
+            bmi.length = 4;
+            bmicontent.textContent = bmi.toString().slice(0, 5);
+
+
+            var interpretation = document.getElementById("interpretation");
+            interpretation.textContent = "Moderate Thinness";
+                if (bmi > 18.5 && bmi < 25) {
+                    interpretation.textContent = "Normal Bmi";
+                    bmicontent.style.color = "rgb(0, 255, 0)";
+                    interpretation.style.color = "rgb(0, 255, 0)";
+                } else {} if(bmi > 15 && bmi < 18.5) {
+                    interpretation.textContent = "Moderate Thinness";
+                    bmicontent.style.color = "orange";
+                    interpretation.style.color = "orange";
+                } else {} if(bmi > 25 && bmi < 30) {
+                    interpretation.textContent = "Overweight";
+                    bmicontent.style.color = "orange";
+                    interpretation.style.color = "orange";
+                } else {} if(bmi < 15) {
+                    interpretation.textContent = "Severe Thinness (Underweight)";
+                    bmicontent.style.color = "red";
+                    interpretation.style.color = "red";
+                } else {} if(bmi > 30) {
+                    interpretation.textContent = "Obesse";
+                    bmicontent.style.color = "red";
+                    interpretation.style.color = "red";
+                }
+    
+            // Add the image
+            var img = document.createElement("img");
+            img.setAttribute("src", "body-1296x1184-bmi-3-1024x924.webp");
+            img.setAttribute("alt", "body-1296x1184-bmi-3-1024x924 image");
+    
+            imgcontainer.innerHTML = ''; // Clear any existing content
+            imgcontainer.appendChild(img);
+        } else {
+            // Remove the image (if it was added before)
+            imgcontainer.innerHTML = '';
+    
+            // Show an alert message
+            alert("Ther was an error calculating your BMI. Please try again!");
+        }
+        document.getElementById("agecontent").textContent = age + " Years Old";
+
+
+        var bmiRangeContent = document.getElementById("ranges");
+
+        if (age >= 1.5 && age <= 18) {
+            bmiRangeContent.textContent = "("+"17 - 23"+")";
+            appendChildChildren(); // You can define the appendChildChildren function to append the content as needed.
+        } else if (age > 18 && age <= 80) {
+            bmiRangeContent.textContent = "("+"18 - 25"+")";
+            appendChildAdult(); // You can define the appendChildAdult function to append the content as needed.
+        } else {
+            bmiRangeContent.textContent = "Please try again!";
+            appendChildFindingRangeForAge(); // You can define the appendChildFindingRangeForAge function to append the content as needed.
+        }
+
+
+
+               console.log("Weight = " + weight);
+        console.log("Age = " + age);
+      console.log("Height = " + height);
+    });
+    
+</script>
+</body>
+<footer>
+    <section style="text-align: center; justify-content: center;">
+        <section class="NavigationP">
+            <div>
+                <h2>Simmillar Projects:</h2>
+                <ul id="NavigPanelFooter">
+                    <a href="#"><li>My Portfolio</li></a>
+                    <a href="#"><li>BMR Calculator</li></a>
+                    <a href="#"  class="active"><li>My eCommerce</li></a>
+                    <a href="#"><li>University of Nairobi portal</li></a>
+                    <a href="#"><li>Signup/Login Page</li></a>
+                    <a href="#"><li>Word Counter</li></a>
+                </ul>
+            </div>
+            <div>
+                <h2>Socials:</h2>
+                <div class="socials">
+                    <a href="https://stackoverflow.com/users/22455327/user22455327" target="_blank">
+                        <button class="btn">
+                            StackOverflow
+                        </button>
+                    </a>
+                    <a href="">
+                        <button class="btn">
+                            Instagram
+                        </button>
+                    </a>
+                    <a href="">
+                        <button class="btn">
+                            Twitter (X)
+                        </button>
+                    </a>
+                    <a href="https://www.youtube.com/channel/UCPrYwmoy9wVGNwg-dmyCNRQ" target="_blank">
+                        <button class="btn">
+                            YouTube
+                        </button>
+                    </a>
+                    <a href="https://github.com/DevOduk/DevOduk.git" target="_blank">
+                        <button class="btn">
+                            Github
+                        </button>
+                    </a>
+                    <a href="https://wa.link/ld7eog" target="_blank">
+                        <button class="btn">
+                            Whatsapp
+                        </button>
+                    </a>
+                </div>
+            </div>
+            <div class="Based">
+                <h2>Located in:</h2>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.271481980604!2d36.77069529067234!3d-1.2831215731093482!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10b216b1dbb5%3A0x36640d56944c4ab7!2sKileleshwa%20Estate%2C%20Nairobi!5e0!3m2!1sen!2ske!4v1699094060763!5m2!1sen!2ske" style="border: 1;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </section>
+        <div>
+            <a href="mailto:austine.oduk577@gmail.com"title="Say Hi">
+                <i class="fa-solid fa-envelope"></i> &nbsp; austine.oduk577@gmail.com
+            </a>
+        </div>
+        <div>
+            Copyright © 2023 | Austine Otieno (aka Oduk) <a href="">View Source Code</a>
+        </div>
+    </section>
+</footer>
